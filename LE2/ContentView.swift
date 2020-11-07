@@ -7,12 +7,36 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack{
+            Button(action: {
+                print("Recording")
+            }) {
+            Text("Here to Listen")
+                .fontWeight(.bold)
+                .font(.largeTitle)
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.red)
+                .cornerRadius(15)
+                .padding(10)
+                .border(Color.pink, width: 3)
+                .cornerRadius(4)
+              
+            
+        }
+        Divider()
+        
+        Text("Echo...echo")
+        }
+        
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
