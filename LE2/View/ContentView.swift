@@ -12,9 +12,9 @@ import UIKit
 
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext)private var viewContext
+    @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath:
-        \Todo.created, ascending: true)],animation: .default) private var todos:FetchedResults<Todo>
+        \Todo.created, ascending: true)],animation: .default) private var todos: FetchedResults<Todo>
     
     @ObservedObject private var mic = MicMonitor(numberOfSamples:30)
     private var speechManager = SpeechManager()
@@ -24,6 +24,11 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             VStack{
+                List {
+                    ForEach(todos, id:\.id) { item in
+                        Text(item.text ?? " ")
+                    }.onDelete(perform: deleteItems)
+                }
                 RoundedRectangle(cornerRadius:CGFloat(25))
                     .fill(Color.primary.opacity(0))
                     .padding()
@@ -32,8 +37,19 @@ struct ContentView: View {
                     })
                     .opacity(isListening ? 1.0: 0.0)
                 recordButton()
+                
             }.onAppear(){
                 self.speechManager.checkPermissions()
+            }
+        }
+    }
+    private func deleteItems(offsets: IndexSet){
+        withAnimation {
+            offsets.map{todos[$0]}.forEach(viewContext.delete)
+            do{
+                try viewContext.save()
+            } catch {
+                print(error)
             }
         }
     }

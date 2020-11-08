@@ -19,7 +19,7 @@ class MicMonitor: ObservableObject{
     @Published public var soundSamples: [Float]
     
     init(numberOfSamples:Int){
-        self.numberOfSamples = numberOfSamples > 0 ? numberOfSamples : 10
+        self.numberOfSamples = numberOfSamples > 0 ? numberOfSamples : 30
         self.soundSamples = [Float](repeating: .zero, count: numberOfSamples)
         self.currentSample = 0
         
