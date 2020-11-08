@@ -10,7 +10,7 @@ This is where **Law Enforcer - Enforcer** or **LE2** comes in. I understand that
 a quick, active double check of everyone's rights in case of confrontation. LE2's goal is to provide reassurance, ease of mind, 
 and safety as we all try to follow the law of the land. 
 
-This mobile iOS app utilizes Apple's Speech to interact and communicate with civilians while they are confronted by law enforcements. 
+This mobile iOS app utilizes Apple's Speech to interact and communicate with civilians discreetly while they are confronted by law enforcements. 
 The role playing example [here](https://imgur.com/a/fldUca2) demonstrates how LE2 interjects when their user's rights are in danger of being undermined.
 
 Thank you to [Quontron](https://github.com/Quontron) for providing the voice and dialogue! 
