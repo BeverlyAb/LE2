@@ -13,4 +13,4 @@ and safety as we all try to follow the law of the land.
 This mobile iOS app utilizes Apple's Speech to interact and communicate with civilians while they are confronted by law enforcements. 
 The role playing example here demonstrates how LE2 interjects when their user's rights are in danger of being undermined.
 
-Thank you to Quontron for providing the voice and dialogue! 
+Thank you to [Quontron](https://github.com/Quontron) for providing the voice and dialogue! 
