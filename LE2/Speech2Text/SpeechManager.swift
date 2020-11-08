@@ -43,13 +43,9 @@ class SpeechManager {
     
     func startRecording(completion: @escaping (String?)->Void){
         guard let recognizer = SFSpeechRecognizer(), recognizer.isAvailable else {
-            print("Speech is unavailable. ERR: 2")
+            print("Speech is unavailable. ERR 2")
             return
         }
-        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
-        recognitionRequest!.shouldReportPartialResults = true
-        
-        
         audioEngine = AVAudioEngine()
         inputNote = audioEngine.inputNode
         let recordingFormat = inputNote.outputFormat(forBus:0)
@@ -66,10 +62,10 @@ class SpeechManager {
         }catch {
             print(error)
         }
-               
-
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        recognitionRequest!.shouldReportPartialResults = true
+        
         recognizer.recognitionTask(with: recognitionRequest!){ (result, error) in
-            
              guard error == nil else {
                  print("ERR 4: \(error!.localizedDescription)")
                  return
@@ -77,7 +73,7 @@ class SpeechManager {
             
              guard let result = result else {return}
                  if result.isFinal {
-                     completion(result.bestTranscription.formattedString)
+                    completion(result.bestTranscription.formattedString)
                     print("Recognized")
              }
          }

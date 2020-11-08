@@ -29,13 +29,13 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
-            VStack{
+            ZStack(alignment: .bottom){
 //                List{
-//                     ForEach(todos, id:\.id) { item in
-//                            Text(item.text ?? "XX")
-//                    } .onDelete(perform: deleteItems)
+////                     ForEach(todos, id:\.id) { item in
+////                            Text(item.text ?? "XX")
+////                    } .onDelete(perform: deleteItems)
 //                }
-                
+//                .navigationTitle("Test")
                 RoundedRectangle(cornerRadius:CGFloat(25))
                     .fill(Color.primary.opacity(0))
                     .padding()
@@ -44,9 +44,10 @@ struct ContentView: View {
                     })
                     .opacity(isListening ? 1.0: 0.0)
                 recordButton()
+                .onAppear(){
+                    self.speechManager.checkPermissions()
+                }
                 
-            }.onAppear(){
-                self.speechManager.checkPermissions()
             }
         }
     }
@@ -92,7 +93,6 @@ struct ContentView: View {
            
    
             speechManager.start{ (speechText) in
-                     print("YAY")
                 guard let text = speechText, !text.isEmpty else {
                     self.isListening = false
                     return
