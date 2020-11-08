@@ -1,4 +1,4 @@
-# LE2 - Submission MataHacks
+# LE2 - MataHacks Submission 
 This app was inspired by the **Black Lives Matter Movement.** Through the use of our phones, we're able to document
 when a mundane routine, such as being pulled over, can escalate to something dreadfully more serious.
 
