@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  LE2
 //
-//  Created by Beverly Abadines on 11/7/20.
+//  Created by Beverly on 11/7/20.
 //  Copyright © 2020 BeverlyAb. All rights reserved.
 //
 

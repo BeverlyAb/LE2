@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0200BBA2557A98900301E27 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0200BB92557A98900301E27 /* SpeechManager.swift */; };
+		B0200BC22557C8AC00301E27 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0200BC12557C8AC00301E27 /* Persistence.swift */; };
+		B0200BC52557CCB900301E27 /* MicMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0200BC42557CCB900301E27 /* MicMonitor.swift */; };
+		B0200BC72557D25200301E27 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0200BC62557D25200301E27 /* BarView.swift */; };
+		B0200BCB2557E9A800301E27 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0200BC92557E9A800301E27 /* Model.xcdatamodeld */; };
 		B0E670BF2557549700D712E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E670BE2557549700D712E3 /* AppDelegate.swift */; };
 		B0E670C12557549700D712E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E670C02557549700D712E3 /* SceneDelegate.swift */; };
 		B0E670C32557549700D712E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E670C22557549700D712E3 /* ContentView.swift */; };
@@ -35,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B0200BB92557A98900301E27 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
+		B0200BC12557C8AC00301E27 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		B0200BC42557CCB900301E27 /* MicMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicMonitor.swift; sourceTree = "<group>"; };
+		B0200BC62557D25200301E27 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		B0200BCA2557E9A800301E27 /* Model.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B0E670BB2557549700D712E3 /* LE2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LE2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E670BE2557549700D712E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0E670C02557549700D712E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +86,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0200BBE2557B29000301E27 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B0E670C92557549B00D712E3 /* LaunchScreen.storyboard */,
+				B0E670C02557549700D712E3 /* SceneDelegate.swift */,
+				B0E670C42557549B00D712E3 /* Assets.xcassets */,
+				B0E670BE2557549700D712E3 /* AppDelegate.swift */,
+				B0200BC92557E9A800301E27 /* Model.xcdatamodeld */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B0200BBF2557B30600301E27 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B0E670C22557549700D712E3 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B0200BC02557B32F00301E27 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				B0200BC12557C8AC00301E27 /* Persistence.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		B0200BC32557CCA700301E27 /* Visual */ = {
+			isa = PBXGroup;
+			children = (
+				B0200BC42557CCB900301E27 /* MicMonitor.swift */,
+				B0200BC62557D25200301E27 /* BarView.swift */,
+			);
+			path = Visual;
+			sourceTree = "<group>";
+		};
+		B0200BC82557D44B00301E27 /* Speech2Text */ = {
+			isa = PBXGroup;
+			children = (
+				B0200BB92557A98900301E27 /* SpeechManager.swift */,
+			);
+			path = Speech2Text;
+			sourceTree = "<group>";
+		};
 		B0E670B22557549700D712E3 = {
 			isa = PBXGroup;
 			children = (
@@ -99,12 +154,12 @@
 		B0E670BD2557549700D712E3 /* LE2 */ = {
 			isa = PBXGroup;
 			children = (
-				B0E670BE2557549700D712E3 /* AppDelegate.swift */,
-				B0E670C02557549700D712E3 /* SceneDelegate.swift */,
-				B0E670C22557549700D712E3 /* ContentView.swift */,
-				B0E670C42557549B00D712E3 /* Assets.xcassets */,
-				B0E670C92557549B00D712E3 /* LaunchScreen.storyboard */,
 				B0E670CC2557549B00D712E3 /* Info.plist */,
+				B0200BC82557D44B00301E27 /* Speech2Text */,
+				B0200BC32557CCA700301E27 /* Visual */,
+				B0200BC02557B32F00301E27 /* Persistence */,
+				B0200BBF2557B30600301E27 /* View */,
+				B0200BBE2557B29000301E27 /* App */,
 				B0E670C62557549B00D712E3 /* Preview Content */,
 			);
 			path = LE2;
@@ -267,7 +322,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0200BC72557D25200301E27 /* BarView.swift in Sources */,
 				B0E670BF2557549700D712E3 /* AppDelegate.swift in Sources */,
+				B0200BBA2557A98900301E27 /* SpeechManager.swift in Sources */,
+				B0200BCB2557E9A800301E27 /* Model.xcdatamodeld in Sources */,
+				B0200BC22557C8AC00301E27 /* Persistence.swift in Sources */,
+				B0200BC52557CCB900301E27 /* MicMonitor.swift in Sources */,
 				B0E670C12557549700D712E3 /* SceneDelegate.swift in Sources */,
 				B0E670C32557549700D712E3 /* ContentView.swift in Sources */,
 			);
@@ -588,6 +648,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B0200BC92557E9A800301E27 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B0200BCA2557E9A800301E27 /* Model.xcdatamodel */,
+			);
+			currentVersion = B0200BCA2557E9A800301E27 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B0E670B32557549700D712E3 /* Project object */;
 }
