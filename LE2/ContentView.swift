@@ -10,31 +10,29 @@ import SwiftUI
 import AVFoundation
 
 struct ContentView: View {
+    @State var isRecording: Bool = false
     var body: some View {
         VStack{
-           
-                Button(action: {
-                    print("Recordingz")
+            Button(action: {
+                self.isRecording.toggle()
                 }) {
                HStack {
-                Text("START")
+                
+                Text(self.isRecording == true ? "Recording": "START")
                        .font(.title)
-                Image(systemName:"play")
-                    .resizable().frame(width:50,height:50)
+                Image(systemName: self.isRecording == true ? "pause.fill" : "play.fill")
+                .resizable().frame(width:50,height:50)
                     .aspectRatio(contentMode: .fit)
                 }
                 .padding(30)
                 .aspectRatio(contentMode: .fill)
-                .foregroundColor(.white)
-                .background(Color.red)
+                .foregroundColor(self.isRecording == true ? Color.gray : Color.white)
+               .background(self.isRecording == true ? Color.black : Color.red)
                 .cornerRadius(100)
+            }
+            Text("Echo...echo")
         }
-        Text("Echo...echo")
-        }
-       
-        
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
