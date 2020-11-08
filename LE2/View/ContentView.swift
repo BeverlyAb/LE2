@@ -7,43 +7,11 @@
 //
 
 import SwiftUI
-import Speech
 import CoreData
 
 
 
 struct ContentView: View {
-    let audioEngine = AVAudioEngine()
-    let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
-    let request = SFSpeechAudioBufferRecognitionRequest()
-    var recognitionTask: SFSpeechRecognitionTask?
-
-    func recordAndRecognizeSpeech(){
-        let node = audioEngine.inputNode
-        let recordingFormat = node.outputFormat(forBus:0)
-        node.installTap(onBus: 0, bufferSize:1024, format:recordingFormat) { buffer, _ in self.request.append(buffer)
-        }
-        
-        audioEngine.prepare()
-        
-        //checkers
-        do{
-            try audioEngine.start()
-        } catch {
-            return print(error)
-        }
-        
-        guard let myRecognizer = SFSpeechRecognizer() else {
-            return
-        }
-        
-        if !myRecognizer.isAvailable {
-            return
-        }
-    }
-    
-    
-    
     @State var isListening: Bool = false
     var body: some View {
         VStack{
@@ -68,7 +36,6 @@ struct ContentView: View {
         }
     }
 }
-
 
 
 struct ContentView_Previews: PreviewProvider {
