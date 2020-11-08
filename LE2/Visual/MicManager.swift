@@ -44,4 +44,23 @@ class MicMonitor: ObservableObject{
             fatalError(error.localizedDescription)
         }
     }
+    
+    public func startMonitoring(){
+        audioRecorder.isMeteringEnabled = true
+        audioRecorder.record()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: {(timer) in
+            self.audioRecorder.updateMeters()
+            self.soundSamples[self.currentSample] = self.audioRecorder.averagePower(forChannel: 0)
+            self.currentSample = (self.currentSample + 1) % self.numberOfSamples
+        })
+    }
+    public func stopMonitoring(){
+        audioRecorder.stop()
+    }
+    
+    deinit {
+        timer?.invalidate()
+        audioRecorder.stop()
+    }
 }
