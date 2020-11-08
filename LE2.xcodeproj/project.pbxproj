@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0200BBA2557A98900301E27 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0200BB92557A98900301E27 /* SpeechManager.swift */; };
 		B0E670BF2557549700D712E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E670BE2557549700D712E3 /* AppDelegate.swift */; };
 		B0E670C12557549700D712E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E670C02557549700D712E3 /* SceneDelegate.swift */; };
 		B0E670C32557549700D712E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E670C22557549700D712E3 /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B0200BB92557A98900301E27 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
 		B0E670BB2557549700D712E3 /* LE2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LE2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E670BE2557549700D712E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0E670C02557549700D712E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				B0E670C92557549B00D712E3 /* LaunchScreen.storyboard */,
 				B0E670CC2557549B00D712E3 /* Info.plist */,
 				B0E670C62557549B00D712E3 /* Preview Content */,
+				B0200BB92557A98900301E27 /* SpeechManager.swift */,
 			);
 			path = LE2;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0E670BF2557549700D712E3 /* AppDelegate.swift in Sources */,
+				B0200BBA2557A98900301E27 /* SpeechManager.swift in Sources */,
 				B0E670C12557549700D712E3 /* SceneDelegate.swift in Sources */,
 				B0E670C32557549700D712E3 /* ContentView.swift in Sources */,
 			);
