@@ -4,7 +4,8 @@
 //
 //  Created by Beverly on 11/7/20.
 //  Copyright © 2020 BeverlyAb. All rights reserved.
-// Followed https://www.youtube.com/watch?v=0KUspKQ6GYk&ab_channel=DevTechie
+// Shout out to DevTechie's tutorial!
+//https://www.youtube.com/watch?v=0KUspKQ6GYk&ab_channel=DevTechie
 //
 
 import Foundation

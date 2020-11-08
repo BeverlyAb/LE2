@@ -7,8 +7,8 @@
 //
 
 import SwiftUI
-import UIKit
 import Speech
+import CoreData
 
 
 
@@ -83,4 +83,3 @@ struct ContentView_Previews: PreviewProvider {
         }
     }
 }
-
