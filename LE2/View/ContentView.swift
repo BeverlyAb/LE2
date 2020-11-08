@@ -31,13 +31,9 @@ struct ContentView: View {
         NavigationView{
             VStack{
 //                List{
-//                    do {
-//                        try ForEach(todos, id:\.id) { item in
+//                     ForEach(todos, id:\.id) { item in
 //                            Text(item.text ?? "XX")
-//                        } .onDelete(perform: deleteItems)
-//                    } catch {
-//                        print(error)
-//                    }
+//                    } .onDelete(perform: deleteItems)
 //                }
                 
                 RoundedRectangle(cornerRadius:CGFloat(25))
@@ -93,8 +89,10 @@ struct ContentView: View {
         } else {
             self.isListening = true
             mic.startMonitoring()
-        
+           
+   
             speechManager.start{ (speechText) in
+                     print("YAY")
                 guard let text = speechText, !text.isEmpty else {
                     self.isListening = false
                     return
