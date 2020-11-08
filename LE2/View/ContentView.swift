@@ -13,8 +13,8 @@ import UIKit
 
 struct ContentView: View {
     @Environment(\.managedObjectContext)private var viewContext
-//    @FetchRequest(transaction: [NSSortDescriptor(keyPath:
-//        \Todo)
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath:
+        \Todo.created, ascending: true)],animation: .default) private var todo:FetchedResults<Todo>
     
     @ObservedObject private var mic = MicMonitor(numberOfSamples:30)
     private var speechManager = SpeechManager()
@@ -73,10 +73,10 @@ struct ContentView: View {
                 }
                 DispatchQueue.main.async {
                     withAnimation{
-//                        let newItem = Todo(context:self.viewContext)
-//                        newItem.id = UUID()
-//                        newItem.text = text
-//                        newItem.created = Date()
+                        let newItem = Todo(context:self.viewContext)
+                        newItem.id = UUID()
+                        newItem.text = text
+                        newItem.created = Date()
                         do {
                             try self.viewContext.save()
                         } catch {
