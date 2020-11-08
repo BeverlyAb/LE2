@@ -88,22 +88,25 @@ struct ContentView: View {
         var utter = ""
         switch count {
         case 1:
-            utter = "You have the right to decline to a search."
-            break
+            utter = "You have the right to remain silent. If you wish to exercise that right, say so out loud."
+              break
         case 3:
-            utter = "You have the right to remain silent"
+            utter = "You have the right to refuse to consent to a search of your person,  car, or home."
             break
         case 5:
-            utter = "You have the right to talk to a lawyer"
+            utter = "You have the right to a lawyer if you are arrested. Ask for one immediately."
+            break
+        case 7:
+            utter = "Regardless of your immigration or citizenship status, you have constitutional rights."
             break
         default:
-            utter = ""
+            utter = "If you are not under arrest,you have the right to calmly leave"
         }
         
 
         let utterance = AVSpeechUtterance(string: utter)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.rate = 0.5
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-UK")
+        utterance.rate = 0.55
 
         let synthesizer = AVSpeechSynthesizer()
         synthesizer.speak(utterance)
@@ -111,6 +114,7 @@ struct ContentView: View {
         count = count + 1
     }
     private func listenIn() {
+        
         if speechManager.isRecording {
             self.isListening = false
             mic.stopMonitoring()
