@@ -14,7 +14,7 @@ import UIKit
 struct ContentView: View {
     @Environment(\.managedObjectContext)private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath:
-        \Todo.created, ascending: true)],animation: .default) private var todo:FetchedResults<Todo>
+        \Todo.created, ascending: true)],animation: .default) private var todos:FetchedResults<Todo>
     
     @ObservedObject private var mic = MicMonitor(numberOfSamples:30)
     private var speechManager = SpeechManager()
@@ -24,14 +24,19 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             VStack{
-                RoundedRectangle(cornerRadius:25)
+                RoundedRectangle(cornerRadius:CGFloat(25))
                     .fill(Color.primary.opacity(0))
                     .padding()
                     .overlay(VStack{
                       visualizerView()
                     })
-                    .opacity(isListening ? 1: 0)
+                    .opacity(isListening ? 1.0: 0.0)
                 recordButton()
+                List{
+                    ForEach(todos, id: \.id) { item in
+                        Text(item.text ?? " " )
+                    }
+                }
             }.onAppear(){
                 self.speechManager.checkPermissions()
             }
