@@ -7,7 +7,7 @@
 // Shout out to DevTechie's tutorial!
 //https://www.youtube.com/watch?v=0KUspKQ6GYk&ab_channel=DevTechie
 //
-
+import UIKit
 import Foundation
 import Speech
 
@@ -56,8 +56,9 @@ class SpeechManager {
                 return
             }
             guard let result = result else {return}
-            if result.isFinal {
-                completion(result.bestTranscription.formattedString)
+                if result.isFinal {
+                    completion(result.bestTranscription.formattedString)
+                   
             }
         }
         audioEngine = AVAudioEngine()

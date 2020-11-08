@@ -32,11 +32,6 @@ struct ContentView: View {
                     })
                     .opacity(isListening ? 1.0: 0.0)
                 recordButton()
-                List{
-                    ForEach(todos, id: \.id) { item in
-                        Text(item.text ?? " " )
-                    }
-                }
             }.onAppear(){
                 self.speechManager.checkPermissions()
             }
@@ -45,14 +40,14 @@ struct ContentView: View {
     
     private func recordButton()->some View{
     Button(action: {
-//        self.isListening.toggle()
+        self.isListening.toggle()
         self.listenIn()
         }) {
        HStack {
         Text(self.isListening == true ? "Listening": "START")
                .font(.title)
         Image(systemName: self.isListening == true ? "pause.fill" : "play.fill")
-        .resizable().frame(width:50,height:50)
+            .resizable().frame(width:50.0,height:50.0)
             .aspectRatio(contentMode: .fit)
         }
         .padding(30)
@@ -64,13 +59,15 @@ struct ContentView: View {
     }
     
     private func listenIn() {
-        if speechManager.isRecording{
-            self.isListening = false
+        if !self.isListening{
+//            self.isListening = false
             mic.stopMonitoring()
             speechManager.stopRecording()
+           
         } else {
-            self.isListening = true
+//            self.isListening = true
             mic.startMonitoring()
+           
             speechManager.start{ (speechText) in
                 guard let text = speechText, !text.isEmpty else {
                     self.isListening = false
@@ -82,6 +79,8 @@ struct ContentView: View {
                         newItem.id = UUID()
                         newItem.text = text
                         newItem.created = Date()
+                        print(newItem.text ?? " ")
+            
                         do {
                             try self.viewContext.save()
                         } catch {
@@ -91,7 +90,7 @@ struct ContentView: View {
                 }
             }
         }
-        speechManager.isRecording.toggle()
+//        speechManager.isRecording.toggle()
     }
 
     private func normalizedSoundLevel(level:Float)->CGFloat{
