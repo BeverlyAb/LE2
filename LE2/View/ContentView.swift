@@ -12,7 +12,14 @@ import CoreData
 
 
 struct ContentView: View {
+//    @Environment(\.managedObjectContext)private var viewContext
+////    @FetchRequest(sortDescriptors:[NSSortDescriptor(keyPath:\To.created,ascending:true)],animation:.default)private var todos:FetchedResults<Todo>
+    
+    @ObservedObject private var mic = MicMonitor(numberOfSamples:30)
+    private var speechManager = SpeechManager()
+
     @State var isListening: Bool = false
+    
     var body: some View {
         VStack{
             Button(action: {
@@ -44,8 +51,6 @@ struct ContentView_Previews: PreviewProvider {
             ZStack {
                 Color.black.edgesIgnoringSafeArea(.all)
                 ContentView().environment(\.colorScheme, .dark)
-              
-
             }
             ContentView().environment(\.colorScheme, .light)
         }

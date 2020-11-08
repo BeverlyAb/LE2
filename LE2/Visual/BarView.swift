@@ -10,13 +10,13 @@ import SwiftUI
 
 struct BarView: View{
     var value:CGFloat
-    let numberOfSample: Int = 30
+    let numberOfSamples: Int = 30
     
     var body: some View{
         ZStack{
             RoundedRectangle(cornerRadius: 20)
                 .fill(LinearGradient(gradient:Gradient(colors:[.blue,.purple]),startPoint:.top,endPoint:.bottom))
-            .frame(width: UIScreen.main.bounds.width - CGFloat(numberOfSample)*10/CGFloat(numberOfSample), height: value)
+            .frame(width: (UIScreen.main.bounds.width - CGFloat(numberOfSamples))*10/CGFloat(numberOfSamples), height: value)
         }
     }
 }

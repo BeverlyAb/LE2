@@ -1,5 +1,5 @@
 //
-//  MicManager.swift
+//  MicMonitor.swift
 //  LE2
 //
 //  Created by Beverly Abadines on 11/7/20.
