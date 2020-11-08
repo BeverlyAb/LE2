@@ -12,23 +12,26 @@ import AVFoundation
 struct ContentView: View {
     var body: some View {
         VStack{
-            Button(action: {
-                print("Recordingz")
-            }) {
-                HStack {
-                    Image(systemName:"Gavel")
-                        .font(.title)
-                    Text("Start")
-                        .fontWeight(.semibold)
-                        .font(.title)
+           
+                Button(action: {
+                    print("Recordingz")
+                }) {
+               HStack {
+                Text("START")
+                       .fontWeight(.semibold)
+                       .font(.title)
+                Image(systemName:"play")
+                    .resizable().frame(width:50,height:50)
+                    .aspectRatio(contentMode: .fit)
                 }
-                .padding()
+                .padding(30)
+               .aspectRatio(contentMode: .fill)
                 .foregroundColor(.white)
                 .background(Color.red)
-                .cornerRadius(40)
+                .cornerRadius(100)
         }
         Divider()
-        
+
         Text("Echo...echo")
         }
         
