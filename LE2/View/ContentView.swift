@@ -9,6 +9,7 @@
 import SwiftUI
 import CoreData
 import UIKit
+import AVFoundation
 
 
 struct ContentView: View {
@@ -81,12 +82,21 @@ struct ContentView: View {
         .cornerRadius(100)
         }
     }
-    
+    private func speak(){
+        let utterance = AVSpeechUtterance(string: "You have the right decline to a search. You have the right to remain silent. You have the right to talk to a lawyer")
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.5
+
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(utterance)
+        print("I spoke")
+    }
     private func listenIn() {
         if speechManager.isRecording {
             self.isListening = false
             mic.stopMonitoring()
             speechManager.stopRecording()
+            speak()
         } else {
             self.isListening = true
             mic.startMonitoring()
