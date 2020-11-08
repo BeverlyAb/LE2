@@ -18,30 +18,35 @@ struct ContentView: View {
                 }) {
                HStack {
                 Text("START")
-                       .fontWeight(.semibold)
                        .font(.title)
                 Image(systemName:"play")
                     .resizable().frame(width:50,height:50)
                     .aspectRatio(contentMode: .fit)
                 }
                 .padding(30)
-               .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fill)
                 .foregroundColor(.white)
                 .background(Color.red)
                 .cornerRadius(100)
         }
-        Divider()
-
         Text("Echo...echo")
         }
+       
         
     }
+    
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ZStack {
+                Color.black.edgesIgnoringSafeArea(.all)
+                ContentView().environment(\.colorScheme, .dark)
+
+            }
+            ContentView().environment(\.colorScheme, .light)
+        }
     }
 }
+
