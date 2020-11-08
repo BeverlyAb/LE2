@@ -97,7 +97,7 @@ struct ContentView: View {
     private func visualizerView()->some View {
         VStack{
             HStack(spacing:4){
-                ForEach(mic.soundSamples,id:\.self){level in
+                ForEach(mic.soundSamples,id: \.self){level in
                     BarView(value:self.normalizedSoundLevel(level:level))
                 }
             }
