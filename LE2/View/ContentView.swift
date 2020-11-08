@@ -8,13 +8,15 @@
 
 import SwiftUI
 import CoreData
+import UIKit
 
 
 struct ContentView: View {
     @Environment(\.managedObjectContext)private var viewContext
-
+//    @FetchRequest(transaction: [NSSortDescriptor(keyPath:
+//        \Todo)
     
-//    @ObservedObject private var mic = MicMonitor(numberOfSamples:30)
+    @ObservedObject private var mic = MicMonitor(numberOfSamples:30)
     private var speechManager = SpeechManager()
 
     @State var isListening = false
@@ -25,9 +27,9 @@ struct ContentView: View {
                 RoundedRectangle(cornerRadius:25)
                     .fill(Color.primary.opacity(0))
                     .padding()
-    //                .overlay(VStack{
-    //                  visualizerView()
-    //                })
+                    .overlay(VStack{
+                      visualizerView()
+                    })
                     .opacity(isListening ? 1: 0)
                 recordButton()
             }
@@ -52,21 +54,52 @@ struct ContentView: View {
         .cornerRadius(100)
         }
     }
+    
+    private func listenIn() {
+        if speechManager.isRecording{
+            self.isListening = false
+            mic.stopMonitoring()
+            speechManager.stopRecording()
+        } else {
+            self.isListening = true
+            mic.startMonitoring()
+            speechManager.start{ (speechText) in
+                guard let text = speechText, !text.isEmpty else {
+                    self.isListening = false
+                    return
+                }
+                DispatchQueue.main.async {
+                    withAnimation{
+//                        let newItem = Todo(context:self.viewContext)
+//                        newItem.id = UUID()
+//                        newItem.text = text
+//                        newItem.created = Date()
+                        do {
+                            try self.viewContext.save()
+                        } catch {
+                            print(error)
+                        }
+                    }
+                }
+            }
+        }
+        speechManager.isRecording.toggle()
+    }
 
     private func normalizedSoundLevel(level:Float)->CGFloat{
         let level = max(0.2,CGFloat(level)+50) / 2
         return CGFloat(level*4)
     }
     
-//    private func visualizerView()->some View {
-//        VStack{
-//            HStack(spacing:4){
-//                ForEach(mic.soundSamples,id:\.self){level in
-//                    BarView(value:self.normalizedSoundLevel(level:level))
-//                }
-//            }
-//        }
-//    }
+    private func visualizerView()->some View {
+        VStack{
+            HStack(spacing:4){
+                ForEach(mic.soundSamples,id:\.self){level in
+                    BarView(value:self.normalizedSoundLevel(level:level))
+                }
+            }
+        }
+    }
 }
 
 
