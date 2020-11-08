@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B0200BBA2557A98900301E27 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0200BB92557A98900301E27 /* SpeechManager.swift */; };
-		B0200BBD2557B1C000301E27 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0200BBB2557B1C000301E27 /* Model.xcdatamodeld */; };
 		B0200BC22557C8AC00301E27 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0200BC12557C8AC00301E27 /* Persistence.swift */; };
 		B0200BC52557CCB900301E27 /* MicMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0200BC42557CCB900301E27 /* MicMonitor.swift */; };
 		B0200BC72557D25200301E27 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0200BC62557D25200301E27 /* BarView.swift */; };
+		B0200BCB2557E9A800301E27 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0200BC92557E9A800301E27 /* Model.xcdatamodeld */; };
 		B0E670BF2557549700D712E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E670BE2557549700D712E3 /* AppDelegate.swift */; };
 		B0E670C12557549700D712E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E670C02557549700D712E3 /* SceneDelegate.swift */; };
 		B0E670C32557549700D712E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E670C22557549700D712E3 /* ContentView.swift */; };
@@ -41,10 +41,10 @@
 
 /* Begin PBXFileReference section */
 		B0200BB92557A98900301E27 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
-		B0200BBC2557B1C000301E27 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B0200BC12557C8AC00301E27 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B0200BC42557CCB900301E27 /* MicMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicMonitor.swift; sourceTree = "<group>"; };
 		B0200BC62557D25200301E27 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		B0200BCA2557E9A800301E27 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B0E670BB2557549700D712E3 /* LE2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LE2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E670BE2557549700D712E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0E670C02557549700D712E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +93,7 @@
 				B0E670C02557549700D712E3 /* SceneDelegate.swift */,
 				B0E670C42557549B00D712E3 /* Assets.xcassets */,
 				B0E670BE2557549700D712E3 /* AppDelegate.swift */,
+				B0200BC92557E9A800301E27 /* Model.xcdatamodeld */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -108,7 +109,6 @@
 		B0200BC02557B32F00301E27 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				B0200BBB2557B1C000301E27 /* Model.xcdatamodeld */,
 				B0200BC12557C8AC00301E27 /* Persistence.swift */,
 			);
 			path = Persistence;
@@ -325,7 +325,7 @@
 				B0200BC72557D25200301E27 /* BarView.swift in Sources */,
 				B0E670BF2557549700D712E3 /* AppDelegate.swift in Sources */,
 				B0200BBA2557A98900301E27 /* SpeechManager.swift in Sources */,
-				B0200BBD2557B1C000301E27 /* Model.xcdatamodeld in Sources */,
+				B0200BCB2557E9A800301E27 /* Model.xcdatamodeld in Sources */,
 				B0200BC22557C8AC00301E27 /* Persistence.swift in Sources */,
 				B0200BC52557CCB900301E27 /* MicMonitor.swift in Sources */,
 				B0E670C12557549700D712E3 /* SceneDelegate.swift in Sources */,
@@ -650,12 +650,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B0200BBB2557B1C000301E27 /* Model.xcdatamodeld */ = {
+		B0200BC92557E9A800301E27 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B0200BBC2557B1C000301E27 /* Model.xcdatamodel */,
+				B0200BCA2557E9A800301E27 /* Model.xcdatamodel */,
 			);
-			currentVersion = B0200BBC2557B1C000301E27 /* Model.xcdatamodel */;
+			currentVersion = B0200BCA2557E9A800301E27 /* Model.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

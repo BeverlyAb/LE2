@@ -11,6 +11,7 @@
 import Foundation
 import Speech
 
+
 class SpeechManager {
     public var isRecording = false
     private var audioEngine: AVAudioEngine!
