@@ -32,13 +32,16 @@ struct ContentView: View {
                     })
                     .opacity(isListening ? 1: 0)
                 recordButton()
+            }.onAppear(){
+                self.speechManager.checkPermissions()
             }
         }
     }
     
     private func recordButton()->some View{
     Button(action: {
-        self.isListening.toggle()
+//        self.isListening.toggle()
+        self.listenIn()
         }) {
        HStack {
         Text(self.isListening == true ? "Listening": "START")
