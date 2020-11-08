@@ -24,11 +24,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             VStack{
-                List {
-                    ForEach(todos, id:\.id) { item in
-                        Text(item.text ?? " ")
-                    }.onDelete(perform: deleteItems)
-                }
                 RoundedRectangle(cornerRadius:CGFloat(25))
                     .fill(Color.primary.opacity(0))
                     .padding()
@@ -43,16 +38,16 @@ struct ContentView: View {
             }
         }
     }
-    private func deleteItems(offsets: IndexSet){
-        withAnimation {
-            offsets.map{todos[$0]}.forEach(viewContext.delete)
-            do{
-                try viewContext.save()
-            } catch {
-                print(error)
-            }
-        }
-    }
+//    private func deleteItems(offsets: IndexSet){
+//        withAnimation {
+//            offsets.map{todos[$0]}.forEach(viewContext.delete)
+//            do{
+//                try viewContext.save()
+//            } catch {
+//                print(error)
+//            }
+//        }
+//    }
     
     private func recordButton()->some View{
     Button(action: {
@@ -79,14 +74,17 @@ struct ContentView: View {
 //            self.isListening = false
             mic.stopMonitoring()
             speechManager.stopRecording()
+            speechManager.isRecording = true
            
         } else {
 //            self.isListening = true
+            speechManager.isRecording = false
             mic.startMonitoring()
            
             speechManager.start{ (speechText) in
                 guard let text = speechText, !text.isEmpty else {
-                    self.isListening = false
+                    //self.isListening = false
+                    self.speechManager.isRecording = false
                     return
                 }
                 DispatchQueue.main.async {
@@ -95,7 +93,7 @@ struct ContentView: View {
                         newItem.id = UUID()
                         newItem.text = text
                         newItem.created = Date()
-                        print(newItem.text ?? " ")
+                        print(newItem.text ?? "XX")
             
                         do {
                             try self.viewContext.save()
