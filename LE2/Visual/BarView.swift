@@ -12,6 +12,7 @@ struct BarView: View{
     var value:CGFloat
     let numberOfSamples: Int = 30
     
+    
     var body: some View{
         ZStack{
             RoundedRectangle(cornerRadius: 20)

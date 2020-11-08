@@ -123,11 +123,8 @@ struct ContentView: View {
         } else {
             self.isListening = true
             mic.startMonitoring()
-           
-   
             speechManager.start{ (speechText) in
                 guard let text = speechText, !text.isEmpty else {
-                    self.isListening = false
                     return
                 }
                 DispatchQueue.main.async {
