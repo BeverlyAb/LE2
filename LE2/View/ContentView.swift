@@ -27,7 +27,8 @@ struct ContentView: View {
     private var speechManager = SpeechManager()
 
     @State var isListening = false
-    
+    @State var count : Float = 0
+
     var body: some View {
         NavigationView{
             ZStack(alignment: .bottom){
@@ -66,6 +67,7 @@ struct ContentView: View {
     private func recordButton()->some View{
     Button(action: {
 //        self.isListening.toggle()
+        self.count += 0.5
         self.listenIn()
         }) {
        HStack {
@@ -83,20 +85,37 @@ struct ContentView: View {
         }
     }
     private func speak(){
-        let utterance = AVSpeechUtterance(string: "You have the right decline to a search. You have the right to remain silent. You have the right to talk to a lawyer")
+        var utter = ""
+        switch count {
+        case 1:
+            utter = "You have the right to decline to a search."
+            break
+        case 3:
+            utter = "You have the right to remain silent"
+            break
+        case 5:
+            utter = "You have the right to talk to a lawyer"
+            break
+        default:
+            utter = ""
+        }
+        
+
+        let utterance = AVSpeechUtterance(string: utter)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         utterance.rate = 0.5
 
         let synthesizer = AVSpeechSynthesizer()
         synthesizer.speak(utterance)
         print("I spoke")
+        count = count + 1
     }
     private func listenIn() {
         if speechManager.isRecording {
             self.isListening = false
             mic.stopMonitoring()
             speechManager.stopRecording()
-            speak()
+            self.speak()
         } else {
             self.isListening = true
             mic.startMonitoring()
