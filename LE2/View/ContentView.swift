@@ -13,8 +13,14 @@ import UIKit
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath:
-        \Todo.created, ascending: true)],animation: .default) private var todos: FetchedResults<Todo>
+//    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath:
+//        \Todo.created, ascending: true)],animation: .default) private var todos: FetchedResults<Todo>
+    @FetchRequest(
+        entity: Todo.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Todo.id, ascending: true)
+        ]
+    ) var todos: FetchedResults<Todo>
     
     @ObservedObject private var mic = MicMonitor(numberOfSamples:30)
     private var speechManager = SpeechManager()
@@ -24,6 +30,16 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             VStack{
+//                List{
+//                    do {
+//                        try ForEach(todos, id:\.id) { item in
+//                            Text(item.text ?? "XX")
+//                        } .onDelete(perform: deleteItems)
+//                    } catch {
+//                        print(error)
+//                    }
+//                }
+                
                 RoundedRectangle(cornerRadius:CGFloat(25))
                     .fill(Color.primary.opacity(0))
                     .padding()
@@ -38,20 +54,20 @@ struct ContentView: View {
             }
         }
     }
-//    private func deleteItems(offsets: IndexSet){
-//        withAnimation {
-//            offsets.map{todos[$0]}.forEach(viewContext.delete)
-//            do{
-//                try viewContext.save()
-//            } catch {
-//                print(error)
-//            }
-//        }
-//    }
+    private func deleteItems(offsets: IndexSet){
+        withAnimation {
+            offsets.map{todos[$0]}.forEach(viewContext.delete)
+            do{
+                try viewContext.save()
+            } catch {
+                print(error)
+            }
+        }
+    }
     
     private func recordButton()->some View{
     Button(action: {
-        self.isListening.toggle()
+//        self.isListening.toggle()
         self.listenIn()
         }) {
        HStack {
@@ -70,21 +86,17 @@ struct ContentView: View {
     }
     
     private func listenIn() {
-        if !self.isListening{
-//            self.isListening = false
+        if speechManager.isRecording {
+            self.isListening = false
             mic.stopMonitoring()
             speechManager.stopRecording()
-            speechManager.isRecording = true
-           
         } else {
-//            self.isListening = true
-            speechManager.isRecording = false
+            self.isListening = true
             mic.startMonitoring()
-           
+        
             speechManager.start{ (speechText) in
                 guard let text = speechText, !text.isEmpty else {
-                    //self.isListening = false
-                    self.speechManager.isRecording = false
+                    self.isListening = false
                     return
                 }
                 DispatchQueue.main.async {
@@ -104,7 +116,7 @@ struct ContentView: View {
                 }
             }
         }
-//        speechManager.isRecording.toggle()
+        speechManager.isRecording.toggle()
     }
 
     private func normalizedSoundLevel(level:Float)->CGFloat{
