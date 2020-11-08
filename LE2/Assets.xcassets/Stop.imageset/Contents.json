@@ -2,6 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "stop.jpg",
       "scale" : "1x"
     },
     {

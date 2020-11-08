@@ -13,20 +13,19 @@ struct ContentView: View {
     var body: some View {
         VStack{
             Button(action: {
-                print("Recording")
+                print("Recordingz")
             }) {
-            Text("Here to Listen")
-                .fontWeight(.bold)
-                .font(.largeTitle)
+                HStack {
+                    Image(systemName:"Gavel")
+                        .font(.title)
+                    Text("Start")
+                        .fontWeight(.semibold)
+                        .font(.title)
+                }
                 .padding()
                 .foregroundColor(.white)
                 .background(Color.red)
-                .cornerRadius(15)
-                .padding(10)
-                .border(Color.pink, width: 3)
-                .cornerRadius(4)
-              
-            
+                .cornerRadius(40)
         }
         Divider()
         
