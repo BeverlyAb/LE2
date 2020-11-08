@@ -77,6 +77,7 @@ struct ContentView_Previews: PreviewProvider {
             ZStack {
                 Color.black.edgesIgnoringSafeArea(.all)
                 ContentView().environment(\.colorScheme, .dark)
+              
 
             }
             ContentView().environment(\.colorScheme, .light)
